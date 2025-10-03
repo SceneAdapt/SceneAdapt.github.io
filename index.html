@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SceneAdapt: ">
+  <meta name="keywords" content="SceneAdapt: Scene-aware Adaptation of Human Motion Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SceneAdapt: Scene-aware Adaptation of Human Motion Diffusion</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SceneAdapt: Scene-aware Adaptation of Human Motion Diffusion</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=DWd9_qQAAAAJ&hl=en">Jungbin Cho<sup>1*</sup></a>,</span>
+            <span class="author-block">
+              <a href="https://minsu1206.github.io/">Minsu Kim<sup>1*</sup></a>,</span>
+            <span class="author-block">
+              <a href="https://jiiiisoo.github.io/">Jisoo Kim<sup>1</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://zczcwh.github.io/">Ce Zheng<sup>2</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.laszlojeni.com/">László A. Jeni<sup>2</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang<sup>3</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://yj-yu.github.io/home/">Youngjae Yu<sup>4</sup></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/site/seonjookim/">Seon Joo Kim<sup>1</sup></a>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Yonsei University</span>
+            <span class="author-block"><sup>2</sup>Carnegie Mellon University</span>
+            <span class="author-block"><sup>3</sup>University of California, Merced</span>
+            <span class="author-block"><sup>4</sup>Seoul National University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span> Paper (Coming Soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Supp (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (Coming Soon)</span>
+                  </a>
+            </div>
+
+          </div>
+
+          <div class="is-size-5 conference-block">
+            <span class="conference-block">arxiv 2025</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- TODO: check grammar  -->
+        <div class="content has-text-justified">
+          <img src="./static/images/teaser.png" alt="Teaser Image" style="width: 100%; height: auto; object-fit: cover;">
+        </div>
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Human motion is inherently diverse and semantically rich, while also shaped by the surrounding scene. 
+            However, existing motion generation approaches address either motion semantics or scene-awareness in isolation, since constructing large-scale datasets with both rich text-motion coverage and precise scene interactions is extremely challenging.
+            In this work, we introduce <strong>SceneAdapt</strong>, a framework that injects scene awareness into text-conditioned motion models by leveraging disjoint scene–motion and text–motion datasets through two adaptation stages: inbetweening and scene-aware inbetweening. 
+            The key idea is to use motion inbetweening, learnable without text, as a proxy task to bridge two distinct datasets and thereby inject scene-awareness to text-to-motion models.
+            In the first stage, we introduce keyframing layers that modulate motion latents for inbetweening while preserving the latent manifold. 
+            In the second stage, we add a scene-conditioning layer that injects scene geometry by adaptively querying local context through cross-attention.
+            Experimental results show that <strong>SceneAdapt</strong> effectively injects scene awareness into text-to-motion models, and we further analyze the mechanisms through which this awareness emerges. Code and models will be released.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+
+    <!-- Overview -->
+
+    <br>
+    <br>
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/motivation_cap.png" alt="Motivation" style="width: 100%; height: auto; object-fit: cover;">
+          <p>
+            (a) Distribution of motion embeddings extracted with the feature extractor (HumanML3D) and visualized via PCA. 
+            HSI datasets (HUMANISE, TRUMANS) show narrower distributions than T2M dataset(HumanML3D), indicating lower diversity. 
+            (b) Models trained on T2M datasets capture diverse action semantics but lack scene awareness. 
+            (c) Models trained on HSI datasets satisfy scene constraints but fail to follow text conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/overview_cap.png" alt="Method Overview" style="width: 100%; height: auto; object-fit: cover;">
+          <p>
+            <b>Stage 0</b>: Pretrain text-to-motion model (MDM).
+            <b>Stage 1</b>: Insert CaKey layers and train them with a motion inbetweening objective, which only requires motion sequences. 
+            <b>Stage 2</b>: Add scene-conditioning layers and train them with a scene-aware inbetweening objective, using scene-motion pairs.
+            <b>Inference</b>: Only use the base model and ScenCo layers for scene-aware text-to-motion generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Results</h2>
+
+
+    <div class="content is-centered has-text-centered">
+      <img src="./static/images/main_table.png" alt="Results" style="width: 70%; height: auto; object-fit: cover;">
+    </div>
+
+    <div class="content is-centered has-text-centered">
+      <img src="./static/images/main_result.png" alt="Results" style="width: 70%; height: auto; object-fit: cover;">
+    </div>
+
+    <br>
+
+    <div class="video-gallery">
+      <h4 class="title is-4">White:MDM, Blue: Afford-Motion, Red: DNO, Green: Ours</h4>
+
+      <video id="michale_jackson" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00105_20fps.mp4" type="video/mp4">
+      </video>
+
+      <video id="basketball" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00333_20fps.mp4" type="video/mp4">
+      </video>
+
+      <video id="crouches_down" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00211_20fps.mp4" type="video/mp4">
+      </video>
+
+      <video id="raise_hands" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00182_20fps.mp4" type="video/mp4">
+      </video>
+
+      <video id="pick_walk" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00094_20fps.mp4" type="video/mp4">
+      </video>
+
+      <video id="walk_handrail" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00375_20fps.mp4" type="video/mp4">
+      </video>
+      
+      <video id="walk_in_circle" controls autoplay muted loop playsinline style="width: 100%; height: auto; max-width: 640px;">
+        <source src="static/videos/result_00363_20fps.mp4" type="video/mp4">
+      </video>
+
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website uses the <a href="https://github.com/nerfies/nerfies.github.io">nerfies.github.io</a> template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
